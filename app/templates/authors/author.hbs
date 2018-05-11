@@ -1,1 +1,29 @@
+<p><strong>{{model.username}}</strong></p>
+<img src={{model.profilePicture}}>
+<p><strong>First Name: </strong>{{model.firstname}}</p>
+<p><strong>Last Name: </strong>{{model.lastname}}</p>
+<p><strong>Email: </strong>{{model.email}}</p>
+<p><strong>Posts: </strong> </p>
+
+<table>
+  <tr>
+    <th></th>
+    <th>Title</th>
+    <th>PublishedAt</th>
+    <th>Content</th>
+  </tr>
+
+{{#each model.posts as |post|}}
+  <tr>
+    <th><button {{action 'eliminar' post}}>Delete Post</button></th>
+    <th>{{post.title}}</th>
+    <th>{{post.publishedAt}}</th>
+    <th>{{post.content}}</th>
+  </tr>
+  {{else}}
+  <p>This author don't have post</p>
+{{/each}}
+
 {{outlet}}
+
+</table>
